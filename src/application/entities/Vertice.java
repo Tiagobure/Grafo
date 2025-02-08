@@ -4,11 +4,15 @@ import java.util.ArrayList;
 
 public class Vertice<TIPO> {
 	private TIPO dado;
-	private ArrayList<TIPO> arestaInput;
-	private ArrayList<TIPO> arestaOutput;
+	
+	private ArrayList<Aresta<TIPO>> arestaInput;
+	private ArrayList<Aresta<TIPO>> arestaOutput;
 
 	public Vertice(TIPO dado) {
 		this.dado = dado;
+		this.arestaInput = new ArrayList<Aresta<TIPO>>();
+		this.arestaOutput = new ArrayList<Aresta<TIPO>>();
+
 	}
 
 	public TIPO getDado() {

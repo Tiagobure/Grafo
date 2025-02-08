@@ -28,6 +28,22 @@ public class Vertice<TIPO> {
 	}
 	public void addArestaOutput(Aresta<TIPO> aresta) {
 		this.arestaOutput.add(aresta);
+	}
+
+	public ArrayList<Aresta<TIPO>> getArestaInput() {
+		return arestaInput;
+	}
+
+	public void setArestaInput(ArrayList<Aresta<TIPO>> arestaInput) {
+		this.arestaInput = arestaInput;
+	}
+
+	public ArrayList<Aresta<TIPO>> getArestaOutput() {
+		return arestaOutput;
+	}
+
+	public void setArestaOutput(ArrayList<Aresta<TIPO>> arestaOutput) {
+		this.arestaOutput = arestaOutput;
 	}	
 	 
 	

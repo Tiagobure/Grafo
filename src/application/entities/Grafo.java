@@ -7,7 +7,6 @@ public class Grafo<TIPO> {
 	private ArrayList<Aresta<TIPO>> arestas;
 
 	public Grafo() {
-		super();
 		this.vertices = new ArrayList<Vertice<TIPO>>();
 		this.arestas = new ArrayList<Aresta<TIPO>>();
 	}
@@ -17,12 +16,12 @@ public class Grafo<TIPO> {
 		this.vertices.add(newVertice);
 	}
 
-	public void addAresta(Double weight, TIPO start, TIPO end) {
-		Vertice<TIPO> rStart = this.getVertice(start);
-		Vertice<TIPO> theEnd = this.getVertice(end);
+	public void addAresta(Double weight, TIPO dadoStart, TIPO dadoEnd) {
+		Vertice<TIPO> start = this.getVertice(dadoStart);
+		Vertice<TIPO> end = this.getVertice(dadoEnd);
 		Aresta<TIPO> aresta = new Aresta<TIPO>(weight, start, end);
-		rStart.addArestaOutput(aresta);
-		theEnd.addArestaInput(aresta);
+		start.addArestaOutput(aresta);
+		end.addArestaInput(aresta);
 		this.arestas.add(aresta);
 	}
 
@@ -35,6 +34,28 @@ public class Grafo<TIPO> {
 			}
 		}
 		return vertice;
+	}
+
+	public void breadthFirstSearch() {
+		ArrayList<Vertice<TIPO>> marked = new ArrayList<Vertice<TIPO>>();
+		ArrayList<Vertice<TIPO>> queue = new ArrayList<Vertice<TIPO>>();
+		Vertice<TIPO> current = this.vertices.get(0);
+		marked.add(current);
+		System.out.println(current.getDado());
+		queue.add(current);
+		while (queue.size() > 0) {
+			Vertice<TIPO> visited = queue.get(0);
+			for (int i = 0; i < visited.getArestaOutput().size(); i++) {
+				Vertice<TIPO> next = visited.getArestaOutput().get(i).getEnd();
+				if (!marked.contains(next)) {
+					marked.add(next);
+					System.out.println(next.getDado());
+					queue.add(next);
+				}
+			}
+			queue.remove(0);
+		}
+
 	}
 
 }

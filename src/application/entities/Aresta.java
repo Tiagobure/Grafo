@@ -8,10 +8,10 @@ public class Aresta<TIPO> {
 	
 	
 	
-	public Aresta(Double weight, TIPO start, TIPO end) {
+	public Aresta(Double weight, Vertice<TIPO> start, Vertice<TIPO> end) {
 		this.weight = weight;
-		this.start = (Vertice<TIPO>) start;
-		this.end = (Vertice<TIPO>) end;
+		this.start =  start;
+		this.end =  end;
 	}
 	public Double getWeight() {
 		return weight;
